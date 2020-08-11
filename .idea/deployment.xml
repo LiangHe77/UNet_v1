@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="lianghe69" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="lianghe69">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/UNet_v2" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
