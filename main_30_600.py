@@ -67,7 +67,7 @@ if args.Loss is 'weight_loss':
     
 elif args.Loss is "MSE":
     loss_fn = nn.MSELoss()
-    
+
 #训练集，验证集，测试集迭代器
 train_bj_iter = BJIterator(datetime_set="bj_train_set.txt",sample_mode="random",
                            seq_len=15,width=600,height=600)
@@ -83,7 +83,7 @@ def train():
     #记录训练开始时间
     torch.cuda.synchronize()
     begin_time = time.time()
-    earlystopping_counter = 0
+    EarlyStopping_counter = 0
     lowest_mse = 100
     epo_loss = 0
     iter_num = 0
@@ -183,17 +183,17 @@ def train():
 
             if mean_loss < lowest_mse:
                 lowest_mse = mean_loss
-                earlystopping_counter = 0
+                EarlyStopping_counter = 0
             else:
-                earlystopping_counter += 1
-                if earlystopping_counter >= args.earlystopping:
+                EarlyStopping_counter += 1
+                if EarlyStopping_counter >= args.earlystopping:
                     print(f"Stopping early --> mse has not decreased over {args.earlystopping} epochs")
                     break
 
             print(f"Val Time: {val_end_time-val_start_time},"
                   f"CSI: {CSI1},{CSI2},{CSI3},{CSI4},"
                   f"lr: {get_lr(optimizer)},"
-                  f"Early stopping counter: {earlystopping_counter}/{args.earlystopping}")
+                  f"Early stopping counter: {EarlyStopping_counter}/{args.earlystopping}")
 
         #if args.Optim is not "RAdam":
         #    scheduler.step()
